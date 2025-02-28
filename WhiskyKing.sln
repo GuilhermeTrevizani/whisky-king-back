@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiskyKing.Core", "src\WhiskyKing.Core\WhiskyKing.Core.csproj", "{0101735B-ECB1-43FD-9F00-52F9EEABA3D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiskyKing.Infra", "src\WhiskyKing.Infra\WhiskyKing.Infra.csproj", "{27B5D4E6-DCD3-4E5C-A0D9-0E1971F5CEB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E32CDDD2-1BE3-411B-883D-6B02B7D07AD8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiskyKing.API", "src\WhiskyKing.API\WhiskyKing.API.csproj", "{A34E386A-A9FE-40C7-A12F-2C1DA931DE11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{C75AB5EA-75F4-4C4D-893D-83E93DFE18A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application", "2. Application", "{91C38B4B-1368-4F55-B9CD-21A21E470AFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{3A0905D6-A575-4599-98CF-F8A47B476F75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infra", "4. Infra", "{8C918EEC-16CE-4007-9AF5-F96A5822068E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhiskyKing.Domain", "src\WhiskyKing.Domain\WhiskyKing.Domain.csproj", "{E057C099-1CD0-41CF-A37B-58836906A00F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0101735B-ECB1-43FD-9F00-52F9EEABA3D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0101735B-ECB1-43FD-9F00-52F9EEABA3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0101735B-ECB1-43FD-9F00-52F9EEABA3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0101735B-ECB1-43FD-9F00-52F9EEABA3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B5D4E6-DCD3-4E5C-A0D9-0E1971F5CEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B5D4E6-DCD3-4E5C-A0D9-0E1971F5CEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B5D4E6-DCD3-4E5C-A0D9-0E1971F5CEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B5D4E6-DCD3-4E5C-A0D9-0E1971F5CEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34E386A-A9FE-40C7-A12F-2C1DA931DE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34E386A-A9FE-40C7-A12F-2C1DA931DE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34E386A-A9FE-40C7-A12F-2C1DA931DE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34E386A-A9FE-40C7-A12F-2C1DA931DE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E057C099-1CD0-41CF-A37B-58836906A00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E057C099-1CD0-41CF-A37B-58836906A00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E057C099-1CD0-41CF-A37B-58836906A00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E057C099-1CD0-41CF-A37B-58836906A00F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0101735B-ECB1-43FD-9F00-52F9EEABA3D4} = {91C38B4B-1368-4F55-B9CD-21A21E470AFF}
+		{27B5D4E6-DCD3-4E5C-A0D9-0E1971F5CEB6} = {8C918EEC-16CE-4007-9AF5-F96A5822068E}
+		{A34E386A-A9FE-40C7-A12F-2C1DA931DE11} = {C75AB5EA-75F4-4C4D-893D-83E93DFE18A3}
+		{C75AB5EA-75F4-4C4D-893D-83E93DFE18A3} = {E32CDDD2-1BE3-411B-883D-6B02B7D07AD8}
+		{91C38B4B-1368-4F55-B9CD-21A21E470AFF} = {E32CDDD2-1BE3-411B-883D-6B02B7D07AD8}
+		{3A0905D6-A575-4599-98CF-F8A47B476F75} = {E32CDDD2-1BE3-411B-883D-6B02B7D07AD8}
+		{8C918EEC-16CE-4007-9AF5-F96A5822068E} = {E32CDDD2-1BE3-411B-883D-6B02B7D07AD8}
+		{E057C099-1CD0-41CF-A37B-58836906A00F} = {3A0905D6-A575-4599-98CF-F8A47B476F75}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00BA7B6E-F885-4138-BE1F-81B44A3213D6}
+	EndGlobalSection
+EndGlobal
