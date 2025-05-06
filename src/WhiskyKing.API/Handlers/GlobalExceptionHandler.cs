@@ -23,7 +23,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
         }
         else if (exception is AggregateException aggregateException)
         {
-            errorsResponse.Errors = aggregateException.InnerExceptions.Select(x => x.Message).ToList();
+            errorsResponse.Errors = [.. aggregateException.InnerExceptions.Select(x => x.Message)];
             code = HttpStatusCode.BadRequest;
         }
         else
