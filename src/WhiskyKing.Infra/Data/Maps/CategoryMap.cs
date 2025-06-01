@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class CategoryModelConfiguration : IEntityTypeConfiguration<Category>
+public class CategoryMap : IEntityTypeConfiguration<Category>
 {
     public void Configure(EntityTypeBuilder<Category> builder)
     {

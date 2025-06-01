@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
 public class SaleMerchandiseModelConfiguration : IEntityTypeConfiguration<SaleMerchandise>
 {

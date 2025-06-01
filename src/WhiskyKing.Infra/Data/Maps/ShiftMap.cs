@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class ShiftModelConfiguration : IEntityTypeConfiguration<Shift>
+public class ShiftMap : IEntityTypeConfiguration<Shift>
 {
     public void Configure(EntityTypeBuilder<Shift> builder)
     {

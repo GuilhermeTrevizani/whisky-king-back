@@ -2,13 +2,13 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class PaymentMethodModelConfiguration : IEntityTypeConfiguration<PaymentMethod>
+public class AccessGroupMap : IEntityTypeConfiguration<AccessGroup>
 {
-    public void Configure(EntityTypeBuilder<PaymentMethod> builder)
+    public void Configure(EntityTypeBuilder<AccessGroup> builder)
     {
-        builder.ToTable("PaymentMethods");
+        builder.ToTable("AccessGroups");
 
         builder.HasKey(x => x.Id);
 

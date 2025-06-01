@@ -2,19 +2,28 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class AccessGroupModelConfiguration : IEntityTypeConfiguration<AccessGroup>
+public class MerchandiseMap : IEntityTypeConfiguration<Merchandise>
 {
-    public void Configure(EntityTypeBuilder<AccessGroup> builder)
+    public void Configure(EntityTypeBuilder<Merchandise> builder)
     {
-        builder.ToTable("AccessGroups");
+        builder.ToTable("Merchandises");
 
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Name)
-            .HasMaxLength(25)
+            .HasMaxLength(50)
             .IsRequired();
+
+        builder.Property(x => x.Price)
+            .HasPrecision(18, 2)
+            .IsRequired();
+
+        builder.HasOne(x => x.Category)
+            .WithMany(x => x.Merchandises)
+            .HasForeignKey(x => x.CategoryId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.RegisterUser)
             .WithMany()

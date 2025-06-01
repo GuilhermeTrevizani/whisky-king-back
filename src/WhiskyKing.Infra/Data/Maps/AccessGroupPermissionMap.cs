@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class AccessGroupPermissionModelConfiguration : IEntityTypeConfiguration<AccessGroupPermission>
+public class AccessGroupPermissionMap : IEntityTypeConfiguration<AccessGroupPermission>
 {
     public void Configure(EntityTypeBuilder<AccessGroupPermission> builder)
     {

@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class SalePaymentMethodModelConfiguration : IEntityTypeConfiguration<SalePaymentMethod>
+public class SalePaymentMethodMap : IEntityTypeConfiguration<SalePaymentMethod>
 {
     public void Configure(EntityTypeBuilder<SalePaymentMethod> builder)
     {

@@ -2,28 +2,19 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class MerchandiseModelConfiguration : IEntityTypeConfiguration<Merchandise>
+public class PaymentMethodMap : IEntityTypeConfiguration<PaymentMethod>
 {
-    public void Configure(EntityTypeBuilder<Merchandise> builder)
+    public void Configure(EntityTypeBuilder<PaymentMethod> builder)
     {
-        builder.ToTable("Merchandises");
+        builder.ToTable("PaymentMethods");
 
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Name)
-            .HasMaxLength(50)
+            .HasMaxLength(25)
             .IsRequired();
-
-        builder.Property(x => x.Price)
-            .HasPrecision(18, 2)
-            .IsRequired();
-
-        builder.HasOne(x => x.Category)
-            .WithMany(x => x.Merchandises)
-            .HasForeignKey(x => x.CategoryId)
-            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(x => x.RegisterUser)
             .WithMany()

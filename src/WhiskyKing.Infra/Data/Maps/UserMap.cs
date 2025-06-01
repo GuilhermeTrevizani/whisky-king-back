@@ -2,20 +2,23 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WhiskyKing.Domain.Entities;
 
-namespace WhiskyKing.Infra.Data.ModelConfigurations;
+namespace WhiskyKing.Infra.Data.Maps;
 
-public class SaleModelConfiguration : IEntityTypeConfiguration<Sale>
+public class UserMap : IEntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<Sale> builder)
+    public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.ToTable("Sales");
+        builder.ToTable("Users");
 
         builder.HasKey(x => x.Id);
 
-        builder.HasOne(x => x.Shift)
-            .WithMany()
-            .HasForeignKey(x => x.ShiftId)
-            .OnDelete(DeleteBehavior.Restrict);
+        builder.Property(x => x.Name)
+            .HasMaxLength(100)
+            .IsRequired();
+
+        builder.Property(x => x.Login)
+            .HasMaxLength(100)
+            .IsRequired();
 
         builder.HasOne(x => x.RegisterUser)
             .WithMany()
