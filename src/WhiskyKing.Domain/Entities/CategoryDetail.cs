@@ -2,19 +2,23 @@
 
 public class CategoryDetail : BaseEntityMin
 {
-    public Guid CategoryId { get; private set; }
-    public string Detail { get; private set; } = string.Empty;
+    private CategoryDetail()
+    {
+    }
 
-    public Category? Category { get; private set; }
-
-    public void Create(string detail)
+    public CategoryDetail(string detail)
     {
         Detail = detail;
     }
 
-    public void Create(Guid categoryId, string detail)
+    public CategoryDetail(Guid categoryId, string detail)
     {
         CategoryId = categoryId;
         Detail = detail;
     }
+
+    public Guid CategoryId { get; private set; }
+    public string Detail { get; private set; } = default!;
+
+    public Category? Category { get; private set; }
 }

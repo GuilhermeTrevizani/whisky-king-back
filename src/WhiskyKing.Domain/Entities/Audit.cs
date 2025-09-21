@@ -2,13 +2,11 @@
 
 public class Audit : BaseEntityMin
 {
-    public string TableName { get; private set; } = string.Empty;
-    public string KeyValue { get; private set; } = string.Empty;
-    public byte EntityState { get; private set; }
-    public string OldValuesJson { get; private set; } = string.Empty;
-    public string NewValuesJson { get; private set; } = string.Empty;
+    private Audit()
+    {
+    }
 
-    public void Create(string tableName, string keyValue, byte entitySate, Guid registerUserId, string oldValuesJson, string newValuesJson)
+    public Audit(string tableName, string keyValue, byte entitySate, Guid registerUserId, string oldValuesJson, string newValuesJson)
     {
         TableName = tableName;
         KeyValue = keyValue;
@@ -17,4 +15,10 @@ public class Audit : BaseEntityMin
         NewValuesJson = newValuesJson;
         SetRegisterUser(registerUserId);
     }
+
+    public string TableName { get; private set; } = default!;
+    public string KeyValue { get; private set; } = default!;
+    public byte EntityState { get; private set; }
+    public string OldValuesJson { get; private set; } = default!;
+    public string NewValuesJson { get; private set; } = default!;
 }

@@ -15,13 +15,11 @@ public class AccessGroupService(IUnitOfWork uow, IValidator<AccessGroup> validat
         var accessGroupPermissions = new List<AccessGroupPermission>();
         foreach (var permission in request.Permissions)
         {
-            var accessGroupPermission = new AccessGroupPermission();
-            accessGroupPermission.Create(permission);
+            var accessGroupPermission = new AccessGroupPermission(permission);
             accessGroupPermissions.Add(accessGroupPermission);
         }
 
-        var accessGroup = new AccessGroup();
-        accessGroup.Create(request.Name, accessGroupPermissions);
+        var accessGroup = new AccessGroup(request.Name, accessGroupPermissions);
 
         await accessGroup.ValidateAndThrowAsync(validator);
 
@@ -91,8 +89,7 @@ public class AccessGroupService(IUnitOfWork uow, IValidator<AccessGroup> validat
         foreach (var permission in request.Permissions
             .Where(x => !accessGroup.AccessGroupsPermissions!.Any(y => y.Permission == x)))
         {
-            var accessGroupPermission = new AccessGroupPermission();
-            accessGroupPermission.Create(accessGroup.Id, permission);
+            var accessGroupPermission = new AccessGroupPermission(accessGroup.Id, permission);
             accessGroupPermissionsInsert.Add(accessGroupPermission);
         }
         if (accessGroupPermissionsInsert.Count != 0)

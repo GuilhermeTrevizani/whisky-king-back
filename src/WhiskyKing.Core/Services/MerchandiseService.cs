@@ -12,8 +12,7 @@ public class MerchandiseService(IUnitOfWork uow, IValidator<Merchandise> validat
 {
     public async Task<Guid> Create(CreateMerchandiseRequest request)
     {
-        var merchandise = new Merchandise();
-        merchandise.Create(request.Name, request.CategoryId, request.Price);
+        var merchandise = new Merchandise(request.Name, request.CategoryId, request.Price);
 
         await merchandise.ValidateAndThrowAsync(validator);
 

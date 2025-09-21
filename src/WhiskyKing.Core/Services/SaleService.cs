@@ -18,8 +18,7 @@ public class SaleService(IUnitOfWork uow, IValidator<Sale> validator) : ISaleSer
         var salesMerchandises = new List<SaleMerchandise>();
         foreach (var merchandise in request.Merchandises)
         {
-            var saleMerchandise = new SaleMerchandise();
-            saleMerchandise.Create(merchandise.MerchandiseId, merchandise.Quantity,
+            var saleMerchandise = new SaleMerchandise(merchandise.MerchandiseId, merchandise.Quantity,
                  (await uow.MerchandiseRepository.GetById(merchandise.MerchandiseId))?.Price ?? 0,
                 merchandise.Detail, merchandise.Discount);
             salesMerchandises.Add(saleMerchandise);
@@ -28,13 +27,11 @@ public class SaleService(IUnitOfWork uow, IValidator<Sale> validator) : ISaleSer
         var salesPaymentMethods = new List<SalePaymentMethod>();
         foreach (var paymentMethod in request.PaymentMethods)
         {
-            var salePaymentMethod = new SalePaymentMethod();
-            salePaymentMethod.Create(paymentMethod.PaymentMethodId, paymentMethod.Value);
+            var salePaymentMethod = new SalePaymentMethod(paymentMethod.PaymentMethodId, paymentMethod.Value);
             salesPaymentMethods.Add(salePaymentMethod);
         }
 
-        var sale = new Sale();
-        sale.Create(currentShift.Id, salesMerchandises, salesPaymentMethods);
+        var sale = new Sale(currentShift.Id, salesMerchandises, salesPaymentMethods);
 
         await sale.ValidateAndThrowAsync(validator);
 

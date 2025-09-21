@@ -15,13 +15,11 @@ public class CategoryService(IUnitOfWork uow, IValidator<Category> validator) : 
         var categoryDetails = new List<CategoryDetail>();
         foreach (var detail in request.Details)
         {
-            var categoryDetail = new CategoryDetail();
-            categoryDetail.Create(detail);
+            var categoryDetail = new CategoryDetail(detail);
             categoryDetails.Add(categoryDetail);
         }
 
-        var category = new Category();
-        category.Create(request.Name, categoryDetails);
+        var category = new Category(request.Name, categoryDetails);
 
         await category.ValidateAndThrowAsync(validator);
 
@@ -100,8 +98,7 @@ public class CategoryService(IUnitOfWork uow, IValidator<Category> validator) : 
         foreach (var detail in request.Details
             .Where(x => !category.Details!.Any(y => y.Detail == x)))
         {
-            var categoryDetail = new CategoryDetail();
-            categoryDetail.Create(category.Id, detail);
+            var categoryDetail = new CategoryDetail(category.Id, detail);
             detailsInsert.Add(categoryDetail);
         }
         if (detailsInsert.Count != 0)

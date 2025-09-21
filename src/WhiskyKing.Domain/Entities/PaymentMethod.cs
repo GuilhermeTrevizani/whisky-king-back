@@ -2,12 +2,16 @@
 
 public class PaymentMethod : BaseEntity
 {
-    public string Name { get; private set; } = string.Empty;
+    public PaymentMethod()
+    {
+    }
 
-    public void Create(string name)
+    public PaymentMethod(string name)
     {
         Name = name;
     }
+
+    public string Name { get; private set; } = default!;
 
     public void Update(string name, DateTime? deletedDate)
     {

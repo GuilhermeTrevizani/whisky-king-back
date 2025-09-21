@@ -13,8 +13,7 @@ public class PaymentMethodService(IUnitOfWork uow, IValidator<PaymentMethod> val
 {
     public async Task<Guid> Create([FromBody] CreatePaymentMethodRequest request)
     {
-        var paymentMethod = new PaymentMethod();
-        paymentMethod.Create(request.Name);
+        var paymentMethod = new PaymentMethod(request.Name);
 
         await paymentMethod.ValidateAndThrowAsync(validator);
 

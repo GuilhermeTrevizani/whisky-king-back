@@ -2,19 +2,23 @@
 
 public class User : BaseEntity
 {
-    public string Name { get; private set; } = string.Empty;
-    public string Login { get; private set; } = string.Empty;
-    public string Password { get; private set; } = string.Empty;
+    private User()
+    {
+    }
 
-    public ICollection<UserAccessGroup>? UsersAccessGroups { get; private set; }
-
-    public void Create(string name, string login, string password, ICollection<UserAccessGroup> usersAccessGroups)
+    public User(string name, string login, string password, ICollection<UserAccessGroup> usersAccessGroups)
     {
         Name = name;
         Login = login;
         Password = password;
         UsersAccessGroups = usersAccessGroups;
     }
+
+    public string Name { get; private set; } = default!;
+    public string Login { get; private set; } = default!;
+    public string Password { get; private set; } = default!;
+
+    public ICollection<UserAccessGroup>? UsersAccessGroups { get; private set; }
 
     public void ChangePassword(string password)
     {

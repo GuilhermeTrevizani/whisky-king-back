@@ -2,16 +2,20 @@
 
 public class AccessGroup : BaseEntity
 {
-    public string Name { get; private set; } = string.Empty;
+    private AccessGroup()
+    {
+    }
 
-    public ICollection<AccessGroupPermission>? AccessGroupsPermissions { get; private set; }
-    public ICollection<UserAccessGroup>? UsersAccessGroups { get; private set; }
-
-    public void Create(string name, ICollection<AccessGroupPermission> accessGroupsPermissions)
+    public AccessGroup(string name, ICollection<AccessGroupPermission> accessGroupsPermissions)
     {
         Name = name;
         AccessGroupsPermissions = accessGroupsPermissions;
     }
+
+    public string Name { get; private set; } = default!;
+
+    public ICollection<AccessGroupPermission>? AccessGroupsPermissions { get; private set; }
+    public ICollection<UserAccessGroup>? UsersAccessGroups { get; private set; }
 
     public void Update(string name, DateTime? deletedDate)
     {

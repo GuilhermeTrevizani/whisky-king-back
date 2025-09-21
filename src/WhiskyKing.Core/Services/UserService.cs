@@ -43,13 +43,11 @@ public class UserService(
         var userAccessGroups = new List<UserAccessGroup>();
         foreach (var accessGroup in request.AccessGroups)
         {
-            var userAccessGroup = new UserAccessGroup();
-            userAccessGroup.Create(accessGroup);
+            var userAccessGroup = new UserAccessGroup(accessGroup);
             userAccessGroups.Add(userAccessGroup);
         }
 
-        var user = new User();
-        user.Create(request.Name, request.Login, hashService.Hash("123"), userAccessGroups);
+        var user = new User(request.Name, request.Login, hashService.Hash("123"), userAccessGroups);
 
         await user.ValidateAndThrowAsync(validator);
 
@@ -143,8 +141,7 @@ public class UserService(
         foreach (var accessGroup in request.AccessGroups
             .Where(x => !user.UsersAccessGroups!.Any(y => y.AccessGroupId == x)))
         {
-            var userAccessGroup = new UserAccessGroup();
-            userAccessGroup.Create(user.Id, accessGroup);
+            var userAccessGroup = new UserAccessGroup(user.Id, accessGroup);
             userAcessGroupsInsert.Add(userAccessGroup);
         }
         if (userAcessGroupsInsert.Count != 0)
