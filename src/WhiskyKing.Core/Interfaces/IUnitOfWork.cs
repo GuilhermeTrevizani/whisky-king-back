@@ -6,7 +6,6 @@ public interface IUnitOfWork
 {
     Task<int> Commit();
 
-    IAuditRepository AuditRepository { get; }
     IAccessGroupPermissionRepository AccessGroupPermissionRepository { get; }
     IAccessGroupRepository AccessGroupRepository { get; }
     IUserAccessGroupRepository UserAccessGroupRepository { get; }

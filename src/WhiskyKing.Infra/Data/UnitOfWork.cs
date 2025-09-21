@@ -5,7 +5,6 @@ namespace WhiskyKing.Infra.Data;
 
 public class UnitOfWork(
     DatabaseContext databaseContext,
-    IAuditRepository auditRepository,
     IAccessGroupPermissionRepository accessGroupPermissionRepository,
     IAccessGroupRepository accessGroupRepository,
     IUserAccessGroupRepository userAccessGroupRepository,
@@ -20,8 +19,6 @@ public class UnitOfWork(
     ICategoryDetailRepository categoryDetailRepository) : IUnitOfWork
 {
     public async Task<int> Commit() => await databaseContext.SaveChangesAsync();
-
-    public IAuditRepository AuditRepository => auditRepository;
 
     public IAccessGroupPermissionRepository AccessGroupPermissionRepository => accessGroupPermissionRepository;
 
